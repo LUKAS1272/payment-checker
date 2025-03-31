@@ -17,6 +17,9 @@ class PaymentChecker
             string paymentsCsvPath = "payments.csv";    // Input payments file
             string peopleListPath = "people.txt";       // List of expected names
             int expectedAmount = 1500;                  // Set the expected amount here
+
+            string accountNumber = "2002346557/2010";
+            string eventName = "jarní STC teambuilding 2025";
             
             int noteIndex = 5;      // Index of the note column (counting from 0)
             int amountIndex = 1;    // Index of the amount column (counting from 0)
@@ -85,6 +88,8 @@ class PaymentChecker
 
         File.WriteAllLines("paid.txt", paid);
         File.WriteAllLines("notPaid.txt", notPaid);
+
+        Console.WriteLine("Ahoj, přihlásil/a ses na " + eventName + ", ale stále jsme od tebe neobdrželi platbu. Máš stále zájem jet, nebo ne? Pokud ano, uhraď, prosím, co nejdříve částku " + expectedAmount + "Kč na účet " + accountNumber + " s poznámkou '" + noteOptions[0] + " jmeno prijmeni'.");
     }
 
     static string ConvertCzechToEnglish(string input)
